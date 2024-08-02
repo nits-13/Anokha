@@ -1,0 +1,272 @@
+body {
+    margin: 0;
+    background: url("/static/images/bg.jpg") center/cover no-repeat fixed;
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    /* Prevent body overflow */
+}
+
+.sidebar {
+    width: 20rem;
+    background-color: #d66868;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar.minimized {
+    width: 0;
+    background-color: transparent;
+    backdrop-filter: none;
+}
+
+.sidebar .profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.minimized .profile-section {
+    opacity: 0;
+}
+
+.dash h1 {
+    color: #d66868;
+    font-size: 3rem;
+}
+
+.in-dash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prog-cont {
+    margin: 1rem;
+}
+
+.sidebar .profile-logo {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.prog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar.minimized .profile-logo {
+    margin: 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+#title {
+    font-family: "Teko", sans-serif;
+    color: white;
+    margin-right: 2rem;
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.minimized #title {
+    opacity: 0;
+}
+
+.nav-links {
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar.minimized .nav-links {
+    display: none;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: white;
+    color: #d66868;
+}
+
+.main-content {
+    margin-left: 20rem;
+    /* Adjust this to match sidebar width */
+    padding: 20px;
+    width: calc(100% - 20rem);
+    /* Adjust this to match sidebar width */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    position: relative;
+    height: 100vh;
+    /* Ensure full height */
+    overflow: auto;
+}
+
+.sidebar.minimized+.main-content {
+    margin-left: 0;
+    width: 100%;
+}
+
+#content2 {
+    margin-top: 15rem;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 2rem 3rem 3rem 3rem;
+    border-radius: 5px;
+}
+
+#content2 h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #d66868;
+}
+
+#upload-form {
+    border: solid 1px #d66868;
+    padding: 2rem;
+    border-radius: 5px;
+    color: #d66868;
+}
+
+#upload-form button {
+    cursor: pointer;
+    border: #d66868 solid 1px;
+    border-radius: 5px;
+    background: #d66868;
+    color: white;
+}
+
+.content {
+    width: 100%;
+    max-width: 1000px;
+    /* Ensure maximum width */
+    display: none;
+    /* Hide content by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    /* Center horizontally */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.content.active {
+    display: flex;
+    opacity: 1;
+}
+
+h1 {
+    font-family: 'Teko', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.2rem;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 11;
+}
+
+.sidebar-toggle .bx-chevron-left {
+    display: inline;
+}
+
+.sidebar.minimized .sidebar-toggle .bx-chevron-left {
+    display: none;
+}
+
+.sidebar.minimized .sidebar-toggle .bx-chevron-right {
+    background-color: #d66868;
+    border-radius: 3px;
+    display: inline;
+}
+
+.sidebar-toggle .bx-chevron-right {
+    background-color: #d66868;
+    border-radius: 3px;
+    display: none;
+}
+
+#names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+#names h1 {
+    font-size: 3.5rem;
+    color: #d66868;
+}
+
+#names p {
+    font-size: 1.5rem;
+    color: #d66868cf;
+}
+
+#division {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#division h1 {
+    cursor: pointer;
+    background-color: #d66868;
+    font-family: 'Dosis', sans-serif;
+    padding: .5rem 2rem .5rem 2rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: white;
+    margin: 1rem;
+}
